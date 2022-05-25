@@ -53,6 +53,7 @@ window/stretch/aspect="keep_width"
 
 "clear color"=false
 default_clear_color=false
+physics=false
 
 [input]
 

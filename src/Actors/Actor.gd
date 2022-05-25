@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Actor
 
 # Exported properties
-export var speed: Vector2 = Vector2(75, 500)
+export var speed: Vector2 = Vector2(75, 650)
 export var gravity: float = 250
 export var jump_strength: float = 120
 
@@ -19,6 +19,9 @@ var input_velocity: Vector2 = Vector2.ZERO
 func cap_speed() -> void:
 	if abs(_velocity.x) > speed.x:
 		_velocity.x = speed.x * sign(_velocity.x)
+		
+func get_max_y_speed() -> float:
+	return speed.y
 		
 func process_input_velocity(delta: float) -> void:
 	# Apply deceleration if not moving
@@ -43,10 +46,16 @@ func process_input_velocity(delta: float) -> void:
 func process_velocity(delta: float) -> void:
 	process_input_velocity(delta)
 	_velocity.y += gravity * delta
+	var max_y_speed: float = get_max_y_speed()
+	if _velocity.y > max_y_speed:
+		_velocity.y = max_y_speed
 	_velocity = move_and_slide(_velocity, Vector2.UP)
+
+var last_physics_pos: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	process_velocity(delta)
+	last_physics_pos = global_transform.origin
 	
 func apply_force(force: Vector2) -> void:
 	_velocity += force
@@ -56,3 +65,16 @@ func get_wall_direction() -> Vector2:
 	if count != 0:
 		return get_slide_collision(0).normal
 	return Vector2.ZERO
+	
+onready var sprite: = $Sprite
+	
+func _process(delta: float) -> void:
+	var fps: = Engine.get_frames_per_second()
+	if fps > Engine.iterations_per_second:
+		var lerp_interval: = _velocity / fps
+		var lerp_position = global_transform.origin + lerp_interval
+		sprite.set_as_toplevel(true)
+		sprite.global_transform.origin = sprite.global_transform.origin.linear_interpolate(lerp_position, 20 * delta)
+	else:
+		sprite.set_as_toplevel(true)
+		sprite.global_transform.origin = global_transform.origin
