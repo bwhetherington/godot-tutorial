@@ -28,7 +28,7 @@ func process_input_velocity(delta: float) -> void:
 	if input_velocity.length_squared() == 0:
 		var dec = ground_deceleration if is_on_floor() else air_deceleration
 		var dir = sign(_velocity.x)
-		
+	
 		var min_speed = min(_velocity.x, 0)
 		var max_speed = max(_velocity.x, 0)
 		_velocity.x = clamp(_velocity.x - (dir * dec * delta), min_speed, max_speed)
@@ -49,7 +49,7 @@ func process_velocity(delta: float) -> void:
 	var max_y_speed: float = get_max_y_speed()
 	if _velocity.y > max_y_speed:
 		_velocity.y = max_y_speed
-	_velocity = move_and_slide(_velocity, Vector2.UP)
+	_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN, Vector2.UP)
 
 var last_physics_pos: Vector2 = Vector2.ZERO
 
