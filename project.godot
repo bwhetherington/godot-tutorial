@@ -14,19 +14,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Actor.gd"
 }, {
+"base": "Node2D",
+"class": "LevelTemplate",
+"language": "GDScript",
+"path": "res://src/Levels/LevelTemplate.gd"
+}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Actors/Player.gd"
 }, {
+"base": "Button",
+"class": "SceneButton",
+"language": "GDScript",
+"path": "res://src/Interfaces/SceneButton.gd"
+}, {
 "base": "Area2D",
 "class": "ScenePortal",
 "language": "GDScript",
-"path": "res://src/Actors/Portal.gd"
+"path": "res://src/Actors/ScenePortal.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
+"LevelTemplate": "",
 "Player": "",
+"SceneButton": "",
 "ScenePortal": ""
 }
 
@@ -54,6 +66,10 @@ window/stretch/aspect="keep_width"
 "clear color"=false
 default_clear_color=false
 physics=false
+
+[gui]
+
+theme/use_hidpi=true
 
 [input]
 
