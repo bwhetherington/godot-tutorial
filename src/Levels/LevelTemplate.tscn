@@ -471,7 +471,7 @@ position = Vector2( 0, 8 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -55, -279 )
+position = Vector2( -64, 8 )
 z_index = 1
 air_acceleration = 150.0
 ground_acceleration = 900.0
