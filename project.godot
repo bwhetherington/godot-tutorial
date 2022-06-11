@@ -22,7 +22,12 @@ _global_script_classes=[ {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/Actors/Player.gd"
+"path": "res://src/Actors/Player/Player.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://src/State/PlayerState.gd"
 }, {
 "base": "Button",
 "class": "SceneButton",
@@ -33,13 +38,26 @@ _global_script_classes=[ {
 "class": "ScenePortal",
 "language": "GDScript",
 "path": "res://src/Actors/ScenePortal.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/State/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/State/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "LevelTemplate": "",
 "Player": "",
+"PlayerState": "",
 "SceneButton": "",
-"ScenePortal": ""
+"ScenePortal": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]

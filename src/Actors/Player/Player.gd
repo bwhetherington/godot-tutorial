@@ -3,6 +3,8 @@ class_name Player
 
 var has_touched_floor = false
 
+var state_machine: StateMachine
+
 func perform_wall_jump() -> void:
 	var wall: Vector2 = get_wall_direction()
 	apply_force(wall * jump_strength)

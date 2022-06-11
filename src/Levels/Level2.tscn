@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Tiles/background.png" type="Texture" id=2]
 [ext_resource path="res://src/Tilesets/DefaultTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/ScenePortal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Levels/Level1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Tilesets/SpikeTileMap.tscn" type="PackedScene" id=7]
 
