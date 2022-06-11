@@ -477,7 +477,7 @@ air_acceleration = 150.0
 ground_acceleration = 900.0
 ground_deceleration = 1200.0
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )

@@ -17,25 +17,27 @@ func set_camera_limits() -> void:
     camera.limit_top = (map_limits.position.y + 0.5) * y_size + map_pos.y
     camera.limit_bottom = (map_limits.end.y - 0.5) * y_size + map_pos.y
     
-    var background = $ParallaxBackground/ParallaxLayer/BackgroundSprite as Sprite
+    var background: Sprite = $ParallaxBackground/ParallaxLayer/BackgroundSprite as Sprite
     
     if background == null:
+        print_debug("no background")
         return
-        
     
     var scale = background.transform.get_scale()
     var position = background.transform.get_origin()
     
     
-    var width = (map_limits.end.x - map_limits.position.x) * x_size
-    var height = (map_limits.end.y - map_limits.position.y) * y_size
+    var width = camera.limit_right - camera.limit_left
+    var height = camera.limit_bottom - camera.limit_top
 
-    scale.x = width / SPRITE_SIZE
-    scale.y = height / SPRITE_SIZE
-    print_debug(scale)
+    scale.x = width / SPRITE_SIZE * 2
+    scale.y = height / SPRITE_SIZE * 2
     
-    position.x = map_pos.x
-    position.y = map_pos.y
+    position.x = (camera.limit_right + camera.limit_left) / 2
+    position.y = (camera.limit_bottom + camera.limit_top) / 2
+    
+    background.position = position
+    background.scale = scale
 
 func _ready() -> void:
     set_camera_limits()
